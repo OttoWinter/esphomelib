@@ -79,6 +79,7 @@
 #include "esphome/output/ledc_output_component.h"
 #include "esphome/output/pca9685_output_component.h"
 #include "esphome/output/my9231_output_component.h"
+#include "esphome/output/sm16716_output_component.h"
 #include "esphome/remote/jvc.h"
 #include "esphome/remote/lg.h"
 #include "esphome/remote/nec.h"
@@ -908,6 +909,16 @@ class Application {
    * @return The MY9231 component. Use this for advanced settings.
    */
   output::MY9231OutputComponent *make_my9231_component(const GPIOOutputPin &pin_di, const GPIOOutputPin &pin_dcki);
+#endif
+
+#ifdef USE_SM16716_OUTPUT
+  /** Create a SM16716 component.
+   *
+   * @param pin_data The data output pin, connected to the SM16716's DIN pin.
+   * @param pin_clock The clock pin, connected to the SM16716's DCLK pin.
+   * @return The SM16716 component. Use this for advanced settings.
+   */
+  output::SM16716OutputComponent *make_sm16716_component(const GPIOOutputPin &pin_data, const GPIOOutputPin &pin_clock);
 #endif
 
   /*   _     ___ ____ _   _ _____
